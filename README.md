@@ -86,3 +86,13 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 >>> print(codecs.encode(os.urandom(32), 'hex').decode())
 794ac7b858bf55565275fcb87a9d9b86e1cfb7b658654438bd415c1463ca331f
 ```
+
+10. Add the main file `__init__.py` into `project` folder. It uses the env var `APP_SETTINGS`.
+
+> APP_SETTINGS is a environment variables with one of following values:
+  - project.config.ProductionConfig
+  - project.config.DevelopmentConfig
+  - project.config.TestingConfig
+
+> Got from Dockerfile / docker-compose
+```
