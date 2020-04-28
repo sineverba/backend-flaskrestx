@@ -10,7 +10,7 @@ before_install:
   - python --version
 
 install:
-  - echo "No install required"
+  - pip install -r requirements-dev.txt
 
 before_script:
   - echo "No before script required"
