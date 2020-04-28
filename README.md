@@ -22,14 +22,14 @@ __TODO__
 
 `$ source env/bin/activate`
 
-3. Setup the requirements
+3. Setup the requirements (requirements-dev.txt will setup also develop tools)
 
 `(env) $ pip install -r requirements-dev.txt`
 
+----------------------------------------------------------------------------------------------------------------------
 
 
-
-##### Small tutorial
+#### Small tutorial
 
 This is a small tutorial, how I coded this.
 
