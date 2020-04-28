@@ -1,0 +1,22 @@
+os: linux
+dist: bionic
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+before_install:
+  - python --version
+
+install:
+  - echo "No install required"
+
+before_script:
+  - echo "No before script required"
+
+script:
+  - echo "Test ok!"
+
+after_success:
+  - echo "Test ok, exit"
