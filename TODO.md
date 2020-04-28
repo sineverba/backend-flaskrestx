@@ -1,0 +1,1 @@
++ Add in `CONTRIBUTING.md` explain to test tool
