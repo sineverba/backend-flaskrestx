@@ -3,6 +3,7 @@
 .vscode
 __pycache__
 env
+.env
 htmlcov/
 coverage.xml
 .pytest_cache
