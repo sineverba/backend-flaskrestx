@@ -26,6 +26,14 @@ __TODO__
 
 `(env) $ pip install -r requirements-dev.txt`
 
+4. Export the environment variables
+
+``` bash
+(env) $ export SECRET_KEY=ThisIsMySuperLongAndSuperSecretKey
+(env) $ export DATABASE_TEST_URL=prefix://username:password@host:port/database
+
+```
+
 ----------------------------------------------------------------------------------------------------------------------
 
 
@@ -62,3 +70,19 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 6. Split the requirements for future setup of develop requirements
 
 `(env) $ touch requirements-dev.txt`
+
+7. Create the main project folder
+
+`(env) $ mkdir project`
+
+8. Add the main configuration to the project folder (`config.py` file)
+
+9. Set in Continuous Integration a very strong environment variable as `SECRET_KEY`. Generate as follow
+
+``` bash
+(env) $ python3.8
+>>> import os
+>>> import codecs
+>>> print(codecs.encode(os.urandom(32), 'hex').decode())
+794ac7b858bf55565275fcb87a9d9b86e1cfb7b658654438bd415c1463ca331f
+```
