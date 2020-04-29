@@ -5,10 +5,14 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+services:
+  - docker
+  - postgresql
 
 env:
   FLASK_APP: project/__init__.py
   FLASK_ENV: development
+  HEROKU_REGISTRY_IMAGE: registry.heroku.com/backend-flaskrestx/web
   APP_SETTINGS: project.config.DevelopmentConfig
   DATABASE_TEST_URL: postgresql://username:password@host:5432/database
 
@@ -16,12 +20,24 @@ before_install:
   - python --version
 
 install:
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
+      chmod +x ./.travis_scripts/travis_build.sh;
+      ./.travis_scripts/travis_build.sh;
+      chmod +x ./.travis_scripts/travis_install_dev.sh;
+      ./.travis_scripts/travis_install_dev.sh;
+    fi
   - pip install -r requirements-dev.txt
 
 before_script:
   - gunicorn -b 0.0.0.0:5000 manage:app --daemon
 
 script:
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
+      chmod +x ./.travis_scripts/travis_test.sh;
+      ./.travis_scripts/travis_test.sh;
+    fi
   - python -m pytest "project/tests" --cov="project"
 
 after_success:
@@ -29,4 +45,6 @@ after_success:
     if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
       python -m coveralls;
       python -m codecov;
+      chmod +x ./.travis_scripts/travis_deploy.sh;
+      ./.travis_scripts/travis_deploy.sh;
     fi

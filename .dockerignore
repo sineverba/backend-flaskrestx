@@ -8,3 +8,4 @@ htmlcov/
 coverage.xml
 .pytest_cache
 .travis-riferimento.yml
+.travis_scripts/

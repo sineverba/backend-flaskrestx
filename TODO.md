@@ -1,4 +1,5 @@
-+ Add tests
++ Add other test tools
++ Reenable test tools from production Docker and from travis script
 + Move from `project` to `app`
 + Add `ping` under folder
 + Add in `CONTRIBUTING.md` explain to test tool
