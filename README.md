@@ -29,8 +29,12 @@ __TODO__
 4. Export the environment variables
 
 ``` bash
+
+(env) $ export FLASK_APP=project/__init__.py
+(env) $ export FLASK_ENV=development
 (env) $ export SECRET_KEY=ThisIsMySuperLongAndSuperSecretKey
-(env) $ export DATABASE_TEST_URL=prefix://username:password@host:port/database
+(env) $ export DATABASE_TEST_URL=postgresql://username:password@host:5432/database
+(env) $ export APP_SETTINGS=project.config.DevelopmentConfig
 
 ```
 
@@ -95,6 +99,9 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
   - project.config.TestingConfig
 
 > Got from Dockerfile / docker-compose
-```
 
 11. Add the manage file
+
+12. Add the `api` folder for next routes, with `__init__.py` and `ping.py` file
+
+13. Enable env, export the env vars and launch `python manage.py run`. Visit `http://localhost:5000/api/v1/ping`.
