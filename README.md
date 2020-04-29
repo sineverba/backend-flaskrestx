@@ -96,3 +96,5 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 
 > Got from Dockerfile / docker-compose
 ```
+
+11. Add the manage file
