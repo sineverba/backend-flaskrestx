@@ -127,3 +127,22 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 17. Add the `CODECOV_TOKEN` env var to your Continuous Integration system
 
 18. Dockerize the app
+
+19. Add the Docker for auto deploy (`docker/Dockerfile.prod`)
+
+``` bash
+$ heroku container:login
+$ docker build -f ./docker/Dockerfile.prod -t registry.heroku.com/backend-flaskrestx/web .
+$ docker push registry.heroku.com/backend-flaskrestx/web:latest
+$ heroku container:release web --app backend-flaskrestx
+$ heroku run sh
+$ export FLASK_APP=project/__init__.py
+$ flask shell
+>>> app.config["SECRET_KEY"]
+```
+
+20. Add the HEROKU_API_KEY in Continuous Integration settings
+
+``` bash
+$ heroku authorizations:create
+```
