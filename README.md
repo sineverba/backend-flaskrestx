@@ -3,9 +3,11 @@ Backend Flask RESTX: Python backend with Flask RESTX + JWT Token
 
 Do you like it or do you use it? **Star it!**
 
-| CI/CD  | Status                                                                                                                                          |
-|--------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Travis | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx) |
+| CI/CD    | Status                                                                                                                                          |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Travis   | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx)                         |
+| Coverall | [![Coverage Status](https://coveralls.io/repos/github/sineverba/backend-flaskrestx/badge.svg?branch=master)](https://coveralls.io/github/sineverba/backend-flaskrestx?branch=master) |
+| Codecov  | [![codecov](https://codecov.io/gh/sineverba/backend-flaskrestx/branch/master/graph/badge.svg)](https://codecov.io/gh/sineverba/backend-flaskrestx)                         |
 
 
 ## Run in development (Docker mode)
@@ -109,3 +111,7 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 14. Add `pytest` and the `tests` directory, with `conftest.py`. Assure that can start with `python -m pytest "project/tests"`
 
 15. Add a unit test for configuration (`tests/unit/test_config.py`) and run it with `python -m pytest "project/tests"`
+
+16. Add the coverage (pytest-cov and `.coveragerc` file) and run it with `python -m pytest "project/tests" --cov="project"`
+
+17. Add the `CODECOV_TOKEN` env var to your Continuous Integration system

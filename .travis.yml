@@ -22,8 +22,11 @@ before_script:
   - gunicorn -b 0.0.0.0:5000 manage:app --daemon
 
 script:
-  #- echo "Test ok!"
-  - python -m pytest "project/tests"
+  - python -m pytest "project/tests" --cov="project"
 
 after_success:
-  - echo "Test ok, exit"
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
+      python -m coveralls;
+      python -m codecov;
+    fi
