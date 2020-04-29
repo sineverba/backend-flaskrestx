@@ -81,7 +81,7 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 
 8. Add the main configuration to the project folder (`config.py` file)
 
-9. Set in Continuous Integration a very strong environment variable as `SECRET_KEY`. Generate as follow
+9. Set in your preferred continuous integration a very strong environment variable as `SECRET_KEY`. Generate as follow
 
 ``` bash
 (env) $ python3.8
@@ -100,8 +100,10 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 
 > Got from Dockerfile / docker-compose
 
-11. Add the manage file
+11. Add the main `manage.py` file (db commented)
 
 12. Add the `api` folder for next routes, with `__init__.py` and `ping.py` file
 
-13. Enable env, export the env vars and launch `python manage.py run`. Visit `http://localhost:5000/api/v1/ping`.
+13. Export the env vars and launch `python manage.py run`. Visit `http://localhost:5000/api/v1/ping`.
+
+14. Add `pytest` and the `tests` directory, with `conftest.py`. Assure that can start with `python -m pytest "project/tests"` (for the moment 0 test, of course)

@@ -23,6 +23,7 @@ before_script:
 
 script:
   - echo "Test ok!"
+  # - python -m pytest "project/tests"
 
 after_success:
   - echo "Test ok, exit"
