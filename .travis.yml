@@ -41,20 +41,16 @@ script:
   - python -m pytest "project/tests" --cov="project"
 
 after_success:
-  # KO
-  #- |
-  #  if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
-  #    python -m coveralls;
-  #    python -m codecov;
-  #    chmod +x ./.travis_scripts/travis_deploy.sh;
-  #    ./.travis_scripts/travis_deploy.sh;
-  #  fi
-  # ------
   # OK
-  # - python -m coveralls;
-  # - python -m codecov;
   - |
     if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
       chmod +x ./.travis_scripts/travis_deploy.sh;
       ./.travis_scripts/travis_deploy.sh;
+    fi
+  # ------
+  # ON TEST
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
+      python -m coveralls;
+      python -m codecov;
     fi
