@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    image: backend-flaskrestx
+    container_name: backend-flaskrestx-app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - DATABASE_TEST_URL=postgresql://username:password@host:5432/database
+      - APP_SETTINGS=project.config.DevelopmentConfig

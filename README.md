@@ -12,7 +12,17 @@ Do you like it or do you use it? **Star it!**
 
 ## Run in development (Docker mode)
 
-__TODO__
+1. Build the docker image
+
+`docker-compose build`
+
+2. Start the docker-compose
+
+`docker-compose up -d`
+
+3. To run tests
+
+`docker-compose exec app python -m pytest "project/tests" --cov="project"`
 
 ## Run in development (Local installation)
 
@@ -115,3 +125,5 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 16. Add the coverage (pytest-cov and `.coveragerc` file) and run it with `python -m pytest "project/tests" --cov="project"`
 
 17. Add the `CODECOV_TOKEN` env var to your Continuous Integration system
+
+18. Dockerize the app
