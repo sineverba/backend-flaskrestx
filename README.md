@@ -106,4 +106,6 @@ $ sudo apt install python3.8 python3-pip python3-setuptools python3.8-venv -y
 
 13. Export the env vars and launch `python manage.py run`. Visit `http://localhost:5000/api/v1/ping`.
 
-14. Add `pytest` and the `tests` directory, with `conftest.py`. Assure that can start with `python -m pytest "project/tests"` (for the moment 0 test, of course)
+14. Add `pytest` and the `tests` directory, with `conftest.py`. Assure that can start with `python -m pytest "project/tests"`
+
+15. Add a unit test for configuration (`tests/unit/test_config.py`) and run it with `python -m pytest "project/tests"`
