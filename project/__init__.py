@@ -27,8 +27,8 @@ def create_app(script_info=None):
     api.init_app(app)
 
     # migrate = Migrate(app, db)
-    Migrate(app, db)
     # Try also add migrate = Migrate() and migrate.init_app(app)
+    Migrate(app, db)
 
     # shell context for flask cli
     @app.shell_context_processor

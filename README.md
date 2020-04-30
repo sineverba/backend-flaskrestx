@@ -3,6 +3,8 @@ Backend Flask RESTX: Python backend with Flask RESTX + JWT Token
 
 Do you like it or do you use it? **Star it!**
 
+Project heavily inspired by [TestDriven course](https://testdriven.io)
+
 | CI/CD/Style | Status                                                                                                                                          |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Travis      | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx)                         |
@@ -152,3 +154,11 @@ $ flask shell
 ``` bash
 $ heroku authorizations:create
 ```
+
+21. Add the Database (Postgres)
+
+    1. Note in `project/config.py` 2 database URIs (one for test, one for dev and production)
+    2. Create the `db/create.sql` instructions and the `Dockerfile.postgres` Dockerfile
+    3. Update the `docker-compose` file
+    4. Add an entrypoint for user, to wait for postgres
+    5. Rebuild the images `docker-compose up --build`
