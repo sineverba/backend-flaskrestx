@@ -1,4 +1,4 @@
-+ Renable all calls to db into project
++ Reenable all calls to Users into project
 + Add `sqlite` as database for testing
 + Move from `project` to `app`
 + Add `ping` under folder

@@ -1,7 +1,6 @@
 import pytest
 
-# from project import create_app, db
-from project import create_app
+from project import create_app, db
 
 # from project.api.models import User
 
@@ -16,11 +15,10 @@ def test_app():
 
 @pytest.fixture(scope="module")
 def test_database():
-    #  db.create_all()
-    #  yield db
-    #  db.session.remove()
-    #  db.drop_all()
-    ""
+    db.create_all()
+    yield db
+    db.session.remove()
+    db.drop_all()
 
 
 @pytest.fixture(scope="function")
