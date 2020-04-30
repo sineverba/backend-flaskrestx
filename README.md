@@ -27,9 +27,12 @@ Project heavily inspired by [TestDriven course](https://testdriven.io)
 
 ```bash
 $ docker-compose exec app python -m pytest "project/tests" --cov="project" --cov-report="html"
-$ docker-compose exec app python -m black project
-$ docker-compose exec app python -m isort project/**/*.py
-$ docker-compose exec app python -m flake8 project
+$ docker-compose exec app black project --diff
+$ docker-compose exec app black project --check
+$ docker-compose exec app black project
+$ docker-compose exec app isort project/**/*.py --check-only
+$ docker-compose exec app isort project/**/*.py --diff
+$ docker-compose exec app flake8 project
 ```
 
 ## Run in development (Local installation)
@@ -162,3 +165,5 @@ $ heroku authorizations:create
     3. Update the `docker-compose` file
     4. Add an entrypoint for user, to wait for postgres
     5. Rebuild the images `docker-compose up --build`
+
+22. Reneable all call to DB into `conftest.py` and `manage.py`
