@@ -26,7 +26,7 @@ Project heavily inspired by [TestDriven course](https://testdriven.io)
 3. To run tests
 
 ```bash
-$ docker-compose exec app python -m pytest "project/tests" --cov="project"
+$ docker-compose exec app python -m pytest "project/tests" --cov="project" --cov-report="html"
 $ docker-compose exec app python -m black project
 $ docker-compose exec app python -m isort project/**/*.py
 $ docker-compose exec app python -m flake8 project
