@@ -3,11 +3,12 @@ Backend Flask RESTX: Python backend with Flask RESTX + JWT Token
 
 Do you like it or do you use it? **Star it!**
 
-| CI/CD    | Status                                                                                                                                          |
+| CI/CD/Style | Status                                                                                                                                          |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Travis   | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx)                         |
-| Coverall | [![Coverage Status](https://coveralls.io/repos/github/sineverba/backend-flaskrestx/badge.svg?branch=master)](https://coveralls.io/github/sineverba/backend-flaskrestx?branch=master) |
-| Codecov  | [![codecov](https://codecov.io/gh/sineverba/backend-flaskrestx/branch/master/graph/badge.svg)](https://codecov.io/gh/sineverba/backend-flaskrestx)                         |
+| Travis      | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx)                         |
+| Coverall    | [![Coverage Status](https://coveralls.io/repos/github/sineverba/backend-flaskrestx/badge.svg?branch=master)](https://coveralls.io/github/sineverba/backend-flaskrestx?branch=master) |
+| Codecov     | [![codecov](https://codecov.io/gh/sineverba/backend-flaskrestx/branch/master/graph/badge.svg)](https://codecov.io/gh/sineverba/backend-flaskrestx)                         |
+| Black       | [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)                                      |
 
 
 ## Run in development (Docker mode)
@@ -22,7 +23,12 @@ Do you like it or do you use it? **Star it!**
 
 3. To run tests
 
-`docker-compose exec app python -m pytest "project/tests" --cov="project"`
+```bash
+$ docker-compose exec app python -m pytest "project/tests" --cov="project"
+$ docker-compose exec app python -m black project
+$ docker-compose exec app python -m isort project/**/*.py
+$ docker-compose exec app python -m flake8 project
+```
 
 ## Run in development (Local installation)
 

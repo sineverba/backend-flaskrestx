@@ -42,6 +42,9 @@ script:
       ./.travis_scripts/travis_test.sh;
     fi
   - python -m pytest "project/tests" --cov="project"
+  - python -m black project
+  - python -m flake8 project
+  - python -m isort project/**/*.py --check-only
 
 after_success:
   - |

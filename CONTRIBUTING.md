@@ -27,10 +27,18 @@ so code coverage need to be ~100%. Continuous Integrations are enabled, so your 
 ## Running Tests
 
 ``` bash
+(env) $ python -m pytest "project/tests" --cov="project"
+(env) $ python -m black project
+(env) $ python -m flake8 project
+(env) $ python -m isort project/**/*.py
 ```
 
 You can also run
 ``` bash
+$ docker-compose exec app python -m pytest "project/tests" --cov="project"
+$ docker-compose exec app python -m black project
+$ docker-compose exec app python -m flake8 project
+$ docker-compose exec app python -m isort project/**/*.py
 ```
 
 **Happy coding**!
