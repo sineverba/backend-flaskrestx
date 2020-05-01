@@ -1,8 +1,7 @@
 import pytest
 
-#from project import create_app, db
-from project import create_app
-#from project.api.models import User
+from project import create_app, db
+from project.api.models import Account
 
 
 @pytest.fixture(scope="module")
@@ -22,11 +21,11 @@ def test_database():
 
 
 @pytest.fixture(scope="function")
-def add_user():
-    def _add_user(username, email):
-        user = User(username=username, email=email)
-        db.session.add(user)
+def add_account():
+    def _add_account(email, password):
+        account = Account(email=email, password=password)
+        db.session.add(account)
         db.session.commit()
-        return user
+        return account
 
-    return _add_user
+    return _add_account

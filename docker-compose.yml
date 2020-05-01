@@ -6,14 +6,30 @@ services:
     build:
       context: ./
       dockerfile: ./docker/Dockerfile
-    image: backend-flaskrestx
+    image: backend-flaskrestx-app
     container_name: backend-flaskrestx-app
     volumes:
       - .:/usr/src/app
     ports:
       - 5001:5000
+    entrypoint: ['/usr/src/app/docker/entrypoint.sh']
     environment:
       - FLASK_APP=project/__init__.py
       - FLASK_ENV=development
-      - DATABASE_TEST_URL=postgresql://username:password@host:5432/database
+      - DATABASE_URL=postgresql://user:password@postgres:5432/beflaskx_dev
+      - DATABASE_TEST_URL=postgresql://user:password@postgres:5432/beflaskx_test
       - APP_SETTINGS=project.config.DevelopmentConfig
+    depends_on: 
+      - postgres
+
+  postgres:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile.postgres
+    image: backend-flaskrestx-postgres
+    container_name: backend-flaskrestx-postgres
+    expose:
+      - 5432
+    environment: 
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password

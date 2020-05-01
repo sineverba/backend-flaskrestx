@@ -3,11 +3,14 @@ Backend Flask RESTX: Python backend with Flask RESTX + JWT Token
 
 Do you like it or do you use it? **Star it!**
 
-| CI/CD    | Status                                                                                                                                          |
+Project heavily inspired by [TestDriven course](https://testdriven.io)
+
+| CI/CD/Style | Status                                                                                                                                          |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Travis   | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx)                         |
-| Coverall | [![Coverage Status](https://coveralls.io/repos/github/sineverba/backend-flaskrestx/badge.svg?branch=master)](https://coveralls.io/github/sineverba/backend-flaskrestx?branch=master) |
-| Codecov  | [![codecov](https://codecov.io/gh/sineverba/backend-flaskrestx/branch/master/graph/badge.svg)](https://codecov.io/gh/sineverba/backend-flaskrestx)                         |
+| Travis      | [![Build Status](https://api.travis-ci.com/sineverba/backend-flaskrestx.svg?branch=master)](https://travis-ci.com/sineverba/backend-flaskrestx)                         |
+| Coverall    | [![Coverage Status](https://coveralls.io/repos/github/sineverba/backend-flaskrestx/badge.svg?branch=master)](https://coveralls.io/github/sineverba/backend-flaskrestx?branch=master) |
+| Codecov     | [![codecov](https://codecov.io/gh/sineverba/backend-flaskrestx/branch/master/graph/badge.svg)](https://codecov.io/gh/sineverba/backend-flaskrestx)                         |
+| Black       | [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)                                      |
 
 
 ## Run in development (Docker mode)
@@ -22,7 +25,23 @@ Do you like it or do you use it? **Star it!**
 
 3. To run tests
 
-`docker-compose exec app python -m pytest "project/tests" --cov="project"`
+```bash
+$ docker-compose exec app python -m pytest "project/tests" --cov="project"
+$ docker-compose exec app python -m pytest "project/tests" --cov="project" --cov-report="html"
+$ docker-compose exec app black project --check
+$ docker-compose exec app black project --diff
+$ docker-compose exec app black project
+$ docker-compose exec app isort project/**/*.py --check-only
+$ docker-compose exec app isort project/**/*.py --diff
+$ docker-compose exec app isort project/**/*.py
+$ docker-compose exec app flake8 project
+```
+
+4. Inspect the Postgres database
+
+```bash
+$ docker-compose exec postgres psql -U username
+```
 
 ## Run in development (Local installation)
 
@@ -146,3 +165,38 @@ $ flask shell
 ``` bash
 $ heroku authorizations:create
 ```
+
+21. Add the Database (Postgres)
+
+    1. Note in `project/config.py` 2 database URIs (one for test, one for dev and production)
+    2. Create the `db/create.sql` instructions and the `Dockerfile.postgres` Dockerfile
+    3. Update the `docker-compose` file
+    4. Add an entrypoint for user, to wait for postgres
+    5. Rebuild the images `docker-compose up --build`
+
+22. Reneable all call to DB into `conftest.py` and `manage.py`
+
+23. Install Bcrypt
+
+    1. Update `project/config.py` with BCRYPT and TOKEN datas
+    2. Init app with bcrypt in `project/__init__.py`
+    3. Update Dockerfile with `libffi-dev`
+
+24. Add the accounts model (accounts, crud and models)
+
+25. Add the route to api/init.py
+
+26. Migrate the database
+
+``` bash
+$ docker-compose exec app python manage.py db init
+$ docker-compose exec app python manage.py db migrate -m "Initial migration"
+```
+
+27. Apply the migration
+
+``` bash
+$ docker-compose exec app python manage.py db migrate upgrade
+```
+
+28. Add a Postres Database to Heroku

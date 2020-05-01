@@ -3,7 +3,7 @@ FROM python:3.8.2-alpine
 
 # install dependencies
 RUN apk update && \
-    apk add --virtual build-deps gcc python-dev musl-dev && \
+    apk add --virtual build-deps gcc python-dev musl-dev libffi-dev && \
     apk add postgresql-dev && \
     apk add netcat-openbsd
 
@@ -23,8 +23,10 @@ COPY ./requirements-dev.txt /usr/src/app/requirements-dev.txt
 
 RUN pip install -r requirements-dev.txt
 
-# add app
-COPY . .
+# new
+# add entrypoint.sh
+COPY ./docker/entrypoint.sh /usr/src/app/entrypoint.sh
+RUN chmod +x /usr/src/app/entrypoint.sh
 
-# run server
-CMD python manage.py run -h 0.0.0.0
+# add app
+COPY . /usr/src/app
