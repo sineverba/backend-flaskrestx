@@ -12,9 +12,10 @@ services:
 env:
   FLASK_APP: project/__init__.py
   FLASK_ENV: development
+  HEROKU_APP_NAME: backend-flaskrestx
   HEROKU_REGISTRY_IMAGE: registry.heroku.com/backend-flaskrestx/web
   APP_SETTINGS: project.config.DevelopmentConfig
-  DATABASE_TEST_URL: postgresql://postgres@127.0.0.1:5432/beflaskx
+  DATABASE_TEST_URL: postgresql://postgres@127.0.0.1:5432/dbtravistest
 
 before_install:
   - python --version
@@ -33,7 +34,7 @@ install:
   - pip install -r requirements-dev.txt
 
 before_script:
-  - psql -c "CREATE DATABASE beflaskx;" -U postgres
+  - psql -c "CREATE DATABASE dbtravistest;" -U postgres
   - gunicorn -b 0.0.0.0:5000 manage:app --daemon
 
 script:

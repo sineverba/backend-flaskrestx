@@ -26,13 +26,21 @@ Project heavily inspired by [TestDriven course](https://testdriven.io)
 3. To run tests
 
 ```bash
+$ docker-compose exec app python -m pytest "project/tests" --cov="project"
 $ docker-compose exec app python -m pytest "project/tests" --cov="project" --cov-report="html"
 $ docker-compose exec app black project --check
 $ docker-compose exec app black project --diff
 $ docker-compose exec app black project
 $ docker-compose exec app isort project/**/*.py --check-only
 $ docker-compose exec app isort project/**/*.py --diff
+$ docker-compose exec app isort project/**/*.py
 $ docker-compose exec app flake8 project
+```
+
+4. Inspect the Postgres database
+
+```bash
+$ docker-compose exec postgres psql -U username
 ```
 
 ## Run in development (Local installation)
@@ -173,3 +181,20 @@ $ heroku authorizations:create
     1. Update `project/config.py` with BCRYPT and TOKEN datas
     2. Init app with bcrypt in `project/__init__.py`
     3. Update Dockerfile with `libffi-dev`
+
+24. Add the accounts model (accounts, crud and models)
+
+25. Add the route to api/init.py
+
+26. Migrate the database
+
+``` bash
+$ docker-compose exec app python manage.py db init
+$ docker-compose exec app python manage.py db migrate -m "Initial migration"
+```
+
+27. Apply the migration
+
+``` bash
+$ docker-compose exec app python manage.py db migrate upgrade
+```
