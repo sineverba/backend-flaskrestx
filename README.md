@@ -198,3 +198,5 @@ $ docker-compose exec app python manage.py db migrate -m "Initial migration"
 ``` bash
 $ docker-compose exec app python manage.py db migrate upgrade
 ```
+
+28. Add a Postres Database to Heroku
