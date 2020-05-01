@@ -9,6 +9,7 @@ from flask_bcrypt import Bcrypt
 db = SQLAlchemy()
 cors = CORS()
 bcrypt = Bcrypt()
+migrate = Migrate()
 
 
 def create_app(script_info=None):
@@ -24,6 +25,7 @@ def create_app(script_info=None):
     db.init_app(app)
     cors.init_app(app, resources={r"*": {"origins": "*"}})
     bcrypt.init_app(app)
+    migrate.init_app(app, db)
 
     from project.api import api
 
@@ -31,7 +33,7 @@ def create_app(script_info=None):
 
     # migrate = Migrate(app, db)
     # Try also add migrate = Migrate() and migrate.init_app(app)
-    Migrate(app, db)
+    # Migrate(app, db)
 
     # shell context for flask cli
     @app.shell_context_processor

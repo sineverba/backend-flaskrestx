@@ -1,4 +1,7 @@
-# 0.2.0
+# 0.2.1
++ Fix `deleted_at` field not null at first create
+
+## 0.2.0
 
 ### Add
 + Add Flake8, Isort and Black
