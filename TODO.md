@@ -7,3 +7,4 @@
 + Add Version in PING dinamic from tag
 + Move `ping.py` under `controller`
 + Change Dockerfile.postgres to use the createsql to echo into the initdb-d
++ Add nginx to configuration
