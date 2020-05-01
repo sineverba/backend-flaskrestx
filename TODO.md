@@ -1,4 +1,10 @@
-+ Reenable all calls to Users into project
++ Complete tests for get all users and post users
++ Refactor organize project folder
++ Add post route
++ Remove "deleted at" field view on users
++ Get all deletet null field
++ Add JWT to account password
++ Move path in api/init.py for accounts to /auth
 + Add `sqlite` as database for testing
 + Move from `project` to `app`
 + Add `ping` under folder
