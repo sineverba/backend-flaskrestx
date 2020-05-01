@@ -1,4 +1,8 @@
-# 0.2.1
+# Next version
++ Small refactor on ping
++ Add setup.cfg for flake
+
+## 0.2.1
 + Fix `deleted_at` field not null at first create
 
 ## 0.2.0
