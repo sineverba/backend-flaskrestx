@@ -13,7 +13,7 @@ class Account(db.Model):
     active = db.Column(db.Boolean(), default=True, nullable=False)
     created_at = db.Column(db.DateTime, default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=func.now(), nullable=True)
-    deleted_at = db.Column(db.DateTime, default=func.now(), nullable=True)
+    deleted_at = db.Column(db.DateTime, nullable=True)
 
     def __init__(self, email, password):
         self.email = email
