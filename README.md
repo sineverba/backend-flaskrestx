@@ -27,8 +27,8 @@ Project heavily inspired by [TestDriven course](https://testdriven.io)
 
 ```bash
 $ docker-compose exec app python -m pytest "project/tests" --cov="project" --cov-report="html"
-$ docker-compose exec app black project --diff
 $ docker-compose exec app black project --check
+$ docker-compose exec app black project --diff
 $ docker-compose exec app black project
 $ docker-compose exec app isort project/**/*.py --check-only
 $ docker-compose exec app isort project/**/*.py --diff
@@ -167,3 +167,9 @@ $ heroku authorizations:create
     5. Rebuild the images `docker-compose up --build`
 
 22. Reneable all call to DB into `conftest.py` and `manage.py`
+
+23. Install Bcrypt
+
+    1. Update `project/config.py` with BCRYPT and TOKEN datas
+    2. Init app with bcrypt in `project/__init__.py`
+    3. Update Dockerfile with `libffi-dev`
