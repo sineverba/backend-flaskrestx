@@ -1,6 +1,7 @@
+from flask import current_app
 from sqlalchemy.sql import func
 
-from project import db
+from project import bcrypt, db
 
 
 class Account(db.Model):
@@ -17,4 +18,6 @@ class Account(db.Model):
 
     def __init__(self, email, password):
         self.email = email
-        self.password = password
+        self.password = bcrypt.generate_password_hash(
+            password, current_app.config.get("BCRYPT_LOG_ROUNDS")
+        ).decode()

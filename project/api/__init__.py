@@ -1,7 +1,7 @@
 from flask_restx import Api
 
 from project.api.accounts import accounts_namespace
-from project.api.ping import ping_namespace
+from project.api.v1.ping.ping import ping_namespace
 
 # Disable totally docs
 api = Api(doc=False)

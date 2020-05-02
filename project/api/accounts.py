@@ -41,7 +41,7 @@ class accountsList(Resource):
             response_object["message"] = "Sorry. That email already exists."
             return response_object, 400
         add_account(email, password)  # new
-        response_object["message"] = f"{email} was added!"
+        response_object["message"] = f"{email} registered!"
         return response_object, 201
 
 
