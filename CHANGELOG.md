@@ -1,4 +1,4 @@
-# Next version
+# 0.4.0
 
 ### Refactor
 + Refactor custom_account view (Change fields to render)
