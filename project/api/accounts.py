@@ -22,8 +22,19 @@ account = accounts_namespace.model(
 )
 
 
+view_account = accounts_namespace.model(
+    "Account",
+    {
+        "id": fields.Integer,
+        "email": fields.String,
+        "created_at": fields.DateTime,
+        "updated_at": fields.DateTime,
+    },
+)
+
+
 class accountsList(Resource):
-    @accounts_namespace.marshal_with(account, as_list=True)
+    @accounts_namespace.marshal_with(view_account, as_list=True, envelope="data")
     def get(self):
         """Returns all accounts"""
         return get_all_accounts(), 200  # updated

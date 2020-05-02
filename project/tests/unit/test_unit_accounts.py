@@ -50,6 +50,6 @@ def test_all_accounts(test_app, monkeypatch):
     resp = client.get("/api/v1/accounts")
     data = json.loads(resp.data.decode())
     assert resp.status_code == 200
-    assert len(data) == 2
-    assert "user@example.com" in data[0]["email"]
-    assert "info@example.com" in data[1]["email"]
+    assert len(data["data"]) == 2
+    assert "user@example.com" in data["data"][0]["email"]
+    assert "info@example.com" in data["data"][1]["email"]

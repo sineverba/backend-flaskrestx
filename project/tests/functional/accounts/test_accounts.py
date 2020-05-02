@@ -20,13 +20,10 @@ def test_can_get_all_account(test_app, test_database, add_account):
 
     assert resp.status_code == 200
 
-    assert len(data) == 2
-    assert "username" in data[1]["email"]
-    # assert "password" in data[1]["password"]
-    assert data[1]["password"] != "password"
-    assert "anotherusername" in data[0]["email"]
-    # assert "anotherpassword" in data[0]["password"]
-    assert data[0]["password"] != "anotherpassword"
+    assert len(data["data"]) == 2
+    assert "username" in data["data"][1]["email"]
+    assert "anotherusername" in data["data"][0]["email"]
+    assert "password" not in data["data"][0]
 
 
 # Test that new account has deleted at null as field
@@ -41,12 +38,11 @@ def test_new_account_has_deleted_at_null(test_app, test_database, add_account):
     data = json.loads(resp.data.decode())
 
     assert resp.status_code == 200
-    assert len(data) == 1
-    assert "username" in data[0]["email"]
-    assert "password" != data[0]["password"]
-    assert data[0]["created_at"] is not None
-    assert data[0]["updated_at"] is not None
-    assert data[0]["deleted_at"] is None
+    assert len(data["data"]) == 1
+    assert "username" in data["data"][0]["email"]
+    assert "password" not in data["data"][0]
+    assert data["data"][0]["created_at"] is not None
+    assert data["data"][0]["updated_at"] is not None
 
 
 # Test can add new account
