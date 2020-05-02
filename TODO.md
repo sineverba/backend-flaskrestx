@@ -2,7 +2,6 @@
 + Refactor organize project folder
 + Move Account Model to AccountV1 Model
 + Add post route
-+ Remove "deleted at" field view on users
 + Get all deletet null field
 + Add JWT to account password
 + Move path in api/init.py for accounts to /auth

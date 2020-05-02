@@ -1,4 +1,10 @@
-# 0.3.0
+# Next version
+
+### Refactor
++ Refactor custom_account view (Change fields to render)
++ Add accounts into envelope
+
+## 0.3.0
 + Small refactor on ping
 + Add setup.cfg for flake
 + Crypt passwords
