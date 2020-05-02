@@ -1,6 +1,8 @@
 # Next version
 + Small refactor on ping
 + Add setup.cfg for flake
++ Crypt passwords
++ Add other tests
 
 ## 0.2.1
 + Fix `deleted_at` field not null at first create

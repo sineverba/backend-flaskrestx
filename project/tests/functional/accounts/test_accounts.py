@@ -22,9 +22,11 @@ def test_can_get_all_account(test_app, test_database, add_account):
 
     assert len(data) == 2
     assert "username" in data[1]["email"]
-    assert "password" in data[1]["password"]
+    # assert "password" in data[1]["password"]
+    assert data[1]["password"] != "password"
     assert "anotherusername" in data[0]["email"]
-    assert "anotherpassword" in data[0]["password"]
+    # assert "anotherpassword" in data[0]["password"]
+    assert data[0]["password"] != "anotherpassword"
 
 
 # Test that new account has deleted at null as field
@@ -41,7 +43,36 @@ def test_new_account_has_deleted_at_null(test_app, test_database, add_account):
     assert resp.status_code == 200
     assert len(data) == 1
     assert "username" in data[0]["email"]
-    assert "password" in data[0]["password"]
+    assert "password" != data[0]["password"]
     assert data[0]["created_at"] is not None
     assert data[0]["updated_at"] is not None
     assert data[0]["deleted_at"] is None
+
+
+# Test can add new account
+def test_can_add_new_account(test_app, test_database):
+    test_database.session.query(Account).delete()
+
+    client = test_app.test_client()
+
+    payload = {"email": "info@example.com", "password": "password"}
+    resp = client.post(
+        "/api/v1/accounts", data=json.dumps(payload), content_type="application/json"
+    )
+    assert resp.status_code == 201
+
+
+# Test cannot add new account if exists
+def test_cannot_add_new_account_if_exists(test_app, test_database, add_account):
+    test_database.session.query(Account).delete()
+
+    add_account("info@example.com", "password")
+    client = test_app.test_client()
+
+    payload = {"email": "info@example.com", "password": "password"}
+    resp = client.post(
+        "/api/v1/accounts", data=json.dumps(payload), content_type="application/json"
+    )
+    data = json.loads(resp.data.decode())
+    assert resp.status_code == 400
+    assert "Sorry. That email already exists." == data["message"]
