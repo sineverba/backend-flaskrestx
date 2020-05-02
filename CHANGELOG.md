@@ -1,4 +1,4 @@
-# Next version
+# 0.3.0
 + Small refactor on ping
 + Add setup.cfg for flake
 + Crypt passwords
