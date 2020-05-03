@@ -1,4 +1,3 @@
-+ Move tests under `v1` folder
 + Add delete route
 + Rema,e Account Model to AccountV1 Model (?)
 + Get all deletet null field
