@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 
-import project.api.accounts
+import project.api.v1.accounts.accounts
 
 
 def test_add_account(test_app, monkeypatch):
@@ -13,9 +13,13 @@ def test_add_account(test_app, monkeypatch):
         return True
 
     monkeypatch.setattr(
-        project.api.accounts, "get_account_by_email", mock_get_account_by_email
+        project.api.v1.accounts.accounts,
+        "get_account_by_email",
+        mock_get_account_by_email,
     )
-    monkeypatch.setattr(project.api.accounts, "add_account", mock_add_account)
+    monkeypatch.setattr(
+        project.api.v1.accounts.accounts, "add_account", mock_add_account
+    )
 
     client = test_app.test_client()
     resp = client.post(
@@ -45,7 +49,9 @@ def test_all_accounts(test_app, monkeypatch):
             },
         ]
 
-    monkeypatch.setattr(project.api.accounts, "get_all_accounts", mock_get_all_accounts)
+    monkeypatch.setattr(
+        project.api.v1.accounts.accounts, "get_all_accounts", mock_get_all_accounts
+    )
     client = test_app.test_client()
     resp = client.get("/api/v1/accounts")
     data = json.loads(resp.data.decode())
