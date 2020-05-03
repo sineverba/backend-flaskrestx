@@ -1,4 +1,9 @@
-# 0.4.0
+# Next version
+
+### Refactor
++ Move `crud.py` under `api/v1/accounts`
+
+## 0.4.0
 
 ### Refactor
 + Refactor custom_account view (Change fields to render)
