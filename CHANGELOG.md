@@ -2,6 +2,8 @@
 
 ### Refactor
 + Move `crud.py` under `api/v1/accounts`
++ Move `accounts` under `api/v1/accounts`
++ Move tests under `v1` folder
 
 ## 0.4.0
 
