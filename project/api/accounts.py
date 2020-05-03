@@ -2,8 +2,8 @@ from flask import request
 from flask_restx import Namespace, Resource, fields
 
 # fmt: off
-from project.api.crud import (add_account, get_account_by_email,
-                              get_all_accounts)
+from project.api.v1.accounts.crud import (add_account, get_account_by_email,
+                                          get_all_accounts)
 
 # fmt: on
 
