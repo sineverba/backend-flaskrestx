@@ -2,6 +2,7 @@
 
 ### Add
 + Add `auth/login` route with fake output
++ Add `nginx` as reverse proxy for gunicorn
 
 ### Refactor
 + Move `crud.py` under `api/v1/accounts`

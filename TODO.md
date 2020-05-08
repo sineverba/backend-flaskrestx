@@ -1,3 +1,5 @@
++ Refactor Docker/Travis Script folder
++ Set API version as env var (see BELARAVEL)
 + Add delete route soft
 + Add delete route hard
 + Delete all users
