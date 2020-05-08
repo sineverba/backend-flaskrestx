@@ -1,4 +1,4 @@
-# Next version
+# 0.5.0
 
 ### Add
 + Add `auth/login` route with fake output
