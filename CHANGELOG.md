@@ -1,4 +1,15 @@
-# 0.4.0
+# 0.5.0
+
+### Add
++ Add `auth/login` route with fake output
++ Add `nginx` as reverse proxy for gunicorn
+
+### Refactor
++ Move `crud.py` under `api/v1/accounts`
++ Move `accounts` under `api/v1/accounts`
++ Move tests under `v1` folder
+
+## 0.4.0
 
 ### Refactor
 + Refactor custom_account view (Change fields to render)

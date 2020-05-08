@@ -1,4 +1,4 @@
-# project/api/crud.py
+# project/api/v1/accounts/crud.py
 
 
 from project import db

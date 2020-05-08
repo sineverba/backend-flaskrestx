@@ -1,7 +1,11 @@
-+ Add delete route
-+ Refactor organize project folder
-+ Move Account Model to AccountV1 Model
-+ Add post route
++ Refactor Docker/Travis Script folder
++ Set API version as env var (see BELARAVEL)
++ Add delete route soft
++ Add delete route hard
++ Delete all users
++ Move Account Model to AccountV1 Model (?)
++ Make login only from deleted not null
++ Create the token from login
 + Get all deletet null field
 + Add JWT to account password
 + Move path in api/init.py for accounts to /auth

@@ -8,7 +8,7 @@ class Ping(Resource):
         return {
             "status": "success",
             "message": "system up and running",
-            "api_version": "0.4.0",
+            "api_version": "0.5.0",
         }
 
 
