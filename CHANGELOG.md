@@ -1,5 +1,8 @@
 # Next version
 
+### Add
++ Add `auth/login` route with fake output
+
 ### Refactor
 + Move `crud.py` under `api/v1/accounts`
 + Move `accounts` under `api/v1/accounts`
