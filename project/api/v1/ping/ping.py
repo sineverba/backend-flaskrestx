@@ -1,5 +1,7 @@
 from flask_restx import Namespace, Resource
 
+from flask import current_app
+
 ping_namespace = Namespace("ping")
 
 
@@ -8,7 +10,7 @@ class Ping(Resource):
         return {
             "status": "success",
             "message": "system up and running",
-            "api_version": "0.5.0",
+            "api_version": current_app.config["APP_VERSION"],
         }
 
 
