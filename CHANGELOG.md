@@ -1,4 +1,4 @@
-# Next version
+# 0.6.0
 
 ### Refactor
 + Get API VERSION from env
