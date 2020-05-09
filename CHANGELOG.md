@@ -1,4 +1,9 @@
-# 0.5.0
+# Next version
+
+### Refactor
++ Get API VERSION from env
+
+## 0.5.0
 
 ### Add
 + Add `auth/login` route with fake output

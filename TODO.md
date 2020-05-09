@@ -1,5 +1,4 @@
 + Refactor Docker/Travis Script folder
-+ Set API version as env var (see BELARAVEL)
 + Add delete route soft
 + Add delete route hard
 + Delete all users
@@ -15,5 +14,4 @@
 + Add Version in PING dinamic from tag
 + Move `ping.py` under `controller`
 + Change Dockerfile.postgres to use the createsql to echo into the initdb-d
-+ Add nginx to configuration
 + Change the secret key (password exposed)
