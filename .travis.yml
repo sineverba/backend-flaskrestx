@@ -52,7 +52,9 @@ after_success:
   - |
     if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]] && [[ $TRAVIS_TAG != "" ]]; then
       chmod +x ./.travis_scripts/travis_deploy.sh;
+      chmod +x ./.travis_scripts/publish_env.sh;
       ./.travis_scripts/travis_deploy.sh;
+      ./.travis_scripts/publish_env.sh;
     fi
   - |
     if [[ $TRAVIS_PYTHON_VERSION == "3.8" ]]; then
